@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e:DomainDefinition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:e="http://exerd.tomato.com/model" UUID="DDefinition_JuyPMKQmEeiUxYzuG-nJWQ" productId="com.tomato.db.mysql" version="2.5.0.20180228-1529">
+  <domain UUID="Domain_JuyPMaQmEeiUxYzuG-nJWQ" name="문자" suggestedDataType="VARCHAR(255)">
+    <domain UUID="Domain_JuyPMqQmEeiUxYzuG-nJWQ" name="주민등록번호" suggestedDataType="VARCHAR(13)"/>
+    <domain UUID="Domain_JuyPM6QmEeiUxYzuG-nJWQ" name="주소"/>
+    <domain UUID="Domain_JuyPNKQmEeiUxYzuG-nJWQ" name="웹주소"/>
+    <domain UUID="Domain_JuyPNaQmEeiUxYzuG-nJWQ" name="전화번호" suggestedDataType="VARCHAR(30)"/>
+    <domain UUID="Domain_JuyPNqQmEeiUxYzuG-nJWQ" name="이메일" suggestedDataType="VARCHAR(40)"/>
+    <domain UUID="Domain_JuyPN6QmEeiUxYzuG-nJWQ" name="DE" suggestedDataType="VARCHAR(45)"/>
+    <domain UUID="Domain_JuyPOKQmEeiUxYzuG-nJWQ" name="이름" suggestedDataType="VARCHAR(50)"/>
+    <domain UUID="Domain_JuyPOaQmEeiUxYzuG-nJWQ" name="URL" suggestedDataType="VARCHAR(255)"/>
+    <domain UUID="Domain_JuyPOqQmEeiUxYzuG-nJWQ" name="MOBILE" suggestedDataType="VARCHAR(15)"/>
+    <domain UUID="Domain_JuyPO6QmEeiUxYzuG-nJWQ" name="EMAIL" suggestedDataType="VARCHAR(255)"/>
+    <domain UUID="Domain_JuyPPKQmEeiUxYzuG-nJWQ" name="NAME" suggestedDataType="VARCHAR(50)"/>
+    <domain UUID="Domain_JuyPPaQmEeiUxYzuG-nJWQ" name="NAME30" suggestedDataType="VARCHAR(30)"/>
+    <domain UUID="Domain_JuyPPqQmEeiUxYzuG-nJWQ" name="ID" suggestedDataType="VARCHAR(20)"/>
+    <domain UUID="Domain_JuyPP6QmEeiUxYzuG-nJWQ" name="PATIENT"/>
+    <domain UUID="Domain_JuyPQKQmEeiUxYzuG-nJWQ" name="PASSWORD" suggestedDataType="VARCHAR(100)"/>
+    <domain UUID="Domain_JuyPQaQmEeiUxYzuG-nJWQ" name="CODE" suggestedDataType="VARCHAR(20)"/>
+    <domain UUID="Domain_JuyPQqQmEeiUxYzuG-nJWQ" name="CODE50" suggestedDataType="VARCHAR(50)"/>
+    <domain UUID="Domain_JuyPQ6QmEeiUxYzuG-nJWQ" name="CATEGORY"/>
+    <domain UUID="Domain_JuyPRKQmEeiUxYzuG-nJWQ" name="DESC"/>
+    <domain UUID="Domain_JuyPRaQmEeiUxYzuG-nJWQ" name="AUTHNUMBER" suggestedDataType="VARCHAR(4)"/>
+    <domain UUID="Domain_JuyPRqQmEeiUxYzuG-nJWQ" name="FLAG" suggestedDataType="VARCHAR(1)"/>
+    <domain UUID="Domain_JuyPR6QmEeiUxYzuG-nJWQ" name="FILENAME" suggestedDataType="VARCHAR(255)"/>
+    <domain UUID="Domain_JuyPSKQmEeiUxYzuG-nJWQ" name="VALUE" suggestedDataType="VARCHAR(20)"/>
+    <domain UUID="Domain_JuyPSaQmEeiUxYzuG-nJWQ" name="IP" suggestedDataType="VARCHAR(15)"/>
+    <domain UUID="Domain_JuyPSqQmEeiUxYzuG-nJWQ" name="ADDRESS"/>
+    <domain UUID="Domain_JuyPS6QmEeiUxYzuG-nJWQ" name="GPS" suggestedDataType="VARCHAR(20)"/>
+    <domain UUID="Domain_JuyPTKQmEeiUxYzuG-nJWQ" name="ZIPCODE" suggestedDataType="VARCHAR(6)"/>
+    <domain UUID="Domain_JuyPTaQmEeiUxYzuG-nJWQ" name="IDS" suggestedDataType="VARCHAR(15)"/>
+    <domain UUID="Domain_JuyPTqQmEeiUxYzuG-nJWQ" name="TYPE" suggestedDataType="VARCHAR(20)"/>
+    <domain UUID="Domain_JuyPT6QmEeiUxYzuG-nJWQ" name="PERSON" suggestedDataType="VARCHAR(10)"/>
+    <domain UUID="Domain_JuyPUKQmEeiUxYzuG-nJWQ" name="LABEL" suggestedDataType="VARCHAR(30)"/>
+  </domain>
+  <domain UUID="Domain_JuyPUaQmEeiUxYzuG-nJWQ" name="숫자" suggestedDataType="INTEGER">
+    <domain UUID="Domain_JuyPUqQmEeiUxYzuG-nJWQ" name="금액"/>
+    <domain UUID="Domain_JuyPU6QmEeiUxYzuG-nJWQ" name="CURRENCY" suggestedDataType="INTEGER"/>
+    <domain UUID="Domain_JuyPVKQmEeiUxYzuG-nJWQ" name="SEQ"/>
+    <domain UUID="Domain_JuyPVaQmEeiUxYzuG-nJWQ" name="NUMBER"/>
+  </domain>
+  <domain UUID="Domain_JuyPVqQmEeiUxYzuG-nJWQ" name="일시" suggestedDataType="DATE">
+    <domain UUID="Domain_JuyPV6QmEeiUxYzuG-nJWQ" name="DATE"/>
+    <domain UUID="Domain_JuyPWKQmEeiUxYzuG-nJWQ" name="TIME" suggestedDataType="TIME"/>
+    <domain UUID="Domain_JuyPWaQmEeiUxYzuG-nJWQ" name="DATETIME" suggestedDataType="DATETIME"/>
+  </domain>
+  <domain UUID="Domain_JuyPWqQmEeiUxYzuG-nJWQ" name="객체" suggestedDataType="BLOB">
+    <domain UUID="Domain_JuyPW6QmEeiUxYzuG-nJWQ" name="이미지" suggestedDataType="VARBINARY"/>
+    <domain UUID="Domain_JuyPXKQmEeiUxYzuG-nJWQ" name="오디오" suggestedDataType="VARBINARY"/>
+    <domain UUID="Domain_JuyPXaQmEeiUxYzuG-nJWQ" name="IMAGE" suggestedDataType="VARBINARY"/>
+    <domain UUID="Domain_JuyPXqQmEeiUxYzuG-nJWQ" name="AUDIO" suggestedDataType="VARBINARY"/>
+  </domain>
+  <domain UUID="Domain_JuyPX6QmEeiUxYzuG-nJWQ" name="PATIENTNUMBER" suggestedDataType="VARCHAR(20)"/>
+  <domain UUID="Domain_JuyPYKQmEeiUxYzuG-nJWQ" name="TEXT" suggestedDataType="TEXT"/>
+  <domain UUID="Domain_JuyPYaQmEeiUxYzuG-nJWQ" name="FLOAT" suggestedDataType="FLOAT"/>
+</e:DomainDefinition>

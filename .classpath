@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="org/snubi/lib/http/|org/snubi/lib/file/" kind="src" path="org.snubi.lib/src"/>
+	<classpathentry kind="src" path="org.snubi.lib/src/org/snubi/lib/file"/>
+	<classpathentry kind="src" path="org.snubi.lib/src/org/snubi/lib/http"/>
+	<classpathentry kind="lib" path="org.snubi.lib/target/org.snubi.lib-1.4.0.jar"/>
+	<classpathentry kind="output" path="org.snubi.lib/target/classes"/>
+</classpath>

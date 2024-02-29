@@ -1,0 +1,226 @@
+/****************************************************************************************
+ * File Name    : Misc
+ * Function     :
+ * Author       : 최명호
+ * Tester       :
+ * Page         :
+ * Target       :
+ * Description  :
+ * Modification Log
+ * ======================================================================================
+ * Ver  Date        Author     Modification
+ * ======================================================================================
+   1.0  2018.04.04  최명호     Create
+   1.1  2020.09.22  최명호     isAvaiableHost 메쏘드 추가
+****************************************************************************************/
+package org.snubi.lib.misc;
+
+import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+import com.google.common.base.Strings;
+
+public class Misc {
+
+	public static String uriQueryToJsonString(String queryString) throws Exception {
+		String stringsAmp[] = queryString.split("&");
+		StringBuffer buffer = new StringBuffer("{");
+		for(String stringAmp : stringsAmp) {
+			String stringsSq[] = stringAmp.split("=");
+			for(String stringSq : stringsSq) {
+				buffer.append("\"").append(stringSq).append("\"");
+				buffer.append(":");
+				if(stringsSq.length == 1) {
+					buffer.append("\"\":");
+				}
+			}
+			buffer.deleteCharAt(buffer.length()-1);
+			buffer.append(",");
+		}
+		buffer.deleteCharAt(buffer.length()-1);
+		buffer.append("}");
+		return buffer.toString();
+	}
+	public static boolean isAvaiableHost(List<String> listAvailableHost,InetAddress clsInetAddress) {
+		try {
+			if(listAvailableHost.contains(InetAddress.getLocalHost().getHostAddress()) == true
+			|| listAvailableHost.contains(InetAddress.getLocalHost().getHostName()) == true) return true;
+		} catch (UnknownHostException Ex) {
+			return false;
+		}
+		return false;
+	}
+	public static void sleepInUtime(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (Exception Ex) {
+
+		}
+	}
+	public static boolean isNmber(String strSource) {
+		for(int i = 0; i < strSource.length(); i++) {
+			char c = strSource.charAt(i);
+			if((c < 48 || c >  57) && c != 46) {
+				return false;
+			}
+		}
+		return true;
+	}
+	public static boolean findStringInList(List<String> listString, String data) {
+		for(String str : listString) {
+			System.out.println("##### " + str + ":" + data + "=" + str.equals(data));
+			if(str.equals(data)) return true;
+		}
+		return false;
+	}
+	public static <T> List<List<T>> chopped(List<T> list, final int L) {
+	    List<List<T>> parts = new ArrayList<List<T>>();
+	    final int N = list.size();
+	    for (int i = 0; i < N; i += L) {
+	        parts.add(new ArrayList<T>(
+	            list.subList(i, Math.min(N, i + L)))
+	        );
+	    }
+	    return parts;
+	}
+	static public void uSleep(long millSecond) {
+		try {
+			Thread.sleep(millSecond);
+		} catch(Exception Ex) {
+		}
+	}
+	static public int getDelemeterCount(String strData,String strDelemeter) {
+		return strData.length() - strData.replace(strDelemeter,"").length();
+	}
+	static public String getFileSizeString(long size) {
+			 if(size > 1024) 			return Math.ceil(size/1024) + "kb";
+		else if(size > 1024*1024) 		return Math.ceil(size/1024/1024) + "mb";
+		else if(size > 1024*1024*1024) 	return Math.ceil(size/1024/1024/1024) + "G";
+		return size + "bytes";
+	}
+	static public Integer getRandomInteger(int length) {
+		String strNum = "1";
+	    String strNumPlus = "1";
+	    for(int i = 0; i < length; i++) {
+	    	strNum += "0";
+	        if(i != length - 1) {
+	        	strNumPlus += "0";
+	        }
+	    }
+	    Random random = new Random();
+	    int result = random.nextInt(Integer.parseInt(strNum)) + Integer.parseInt(strNumPlus);
+	    if (result > Integer.parseInt(strNum)) {
+	        result = result - Integer.parseInt(strNumPlus);
+	    }
+	    return result;
+	}
+	static public int getRandomInteger(int min,int max) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        int randomNum = tlr.nextInt(min, max + 1);
+        return randomNum;
+    }
+	static public String getRandomAlpha(char charFlag,int intLength) {
+		StringBuffer temp = new StringBuffer();
+		Random rnd = new Random();
+		int numAlpha = charFlag == 'S' ? 97 : 65;
+
+		for(int i = 0 ; i < intLength; i++ ) {
+			temp.append((char) ((int) (rnd.nextInt(26)) + numAlpha));
+		}
+		return temp.toString();
+	}
+	static public boolean isEmtyString(String strTarget) {
+		try {
+			return (strTarget == null || "".equals(strTarget.trim()));
+		} catch(Exception Ex) {
+			return true;
+		}
+	}
+	static public boolean isEqualString(String strTarget,String strSource) {
+		try {
+			return strTarget.equals(strSource);
+		} catch(Exception Ex) {
+			return false;
+		}
+	}
+	static public boolean isEqualStringIgnoreSpaceCase(String strTarget,String strSource) {
+		try {
+			strTarget = strTarget.replaceAll(" ","").toLowerCase().trim();
+			strSource = strSource.replaceAll(" ","").toLowerCase().trim();
+			return strTarget.equals(strSource);
+		} catch(Exception Ex) {
+			return false;
+		}
+	}
+	static public boolean isEqualStringWithoutCase(String strTarget,String strSource) {
+		try {
+			return strTarget.toUpperCase().equals(strSource.toUpperCase());
+		} catch(Exception Ex) {
+			return false;
+		}
+	}
+	static public String makeStringWithCapitalLetter(String strSource) {
+		String strUpperSource = strSource.toUpperCase();
+		String strLowerSource = strSource.toLowerCase();
+		return strUpperSource.charAt(0) + strLowerSource.substring(1);
+	}
+	static public String setEndWith(String strTarget,String strEnd) throws Exception {
+		return strTarget.endsWith(strEnd) == true ? strTarget : strTarget + strEnd;
+	}
+	static public String[] splitString(String strTarget,char charDelemeter, int intIndex) {
+
+		String buffer[] = new String[2];
+		int lens = strTarget.length();
+		int start = intIndex < 0 ? lens - 1 : 0;
+		int terms = intIndex < 0 ? 0 : lens - 1;
+		int offset = 0;
+
+		for(int i = start; i < terms; i++) {
+			if(strTarget.charAt(i) == charDelemeter) {
+				offset = i;
+			}
+		}
+		if(offset > 0 && offset < lens) {
+			buffer[0] = strTarget.substring(0,offset);
+			buffer[1] = strTarget.substring(offset,lens);
+		}
+		return buffer;
+	}
+	static public String asteriskString(int intLeft,int intRight,String strTarget,char charDele) {
+		StringBuilder stringBuilder = new StringBuilder();
+		int intLen = strTarget.length();
+		for(int i = 0; i < intLen; i ++ ) {
+			if(i < intLeft || i >= (intLen - intRight)) {
+				stringBuilder.append(strTarget.charAt(i));
+			} else {
+				stringBuilder.append(charDele);
+			}
+		}
+		return stringBuilder.toString();
+	}
+	public static BigDecimal decimalFloatScale(String decimal ,int precision, char mode) {
+		BigDecimal clsBigDecimal = new BigDecimal(decimal);
+		BigDecimal result = null;
+		switch(mode) {
+			case 'D' : 	result = clsBigDecimal.setScale(precision, BigDecimal.ROUND_DOWN	);break;
+		  	case 'H' :	result = clsBigDecimal.setScale(precision, BigDecimal.ROUND_HALF_UP	); break;
+		  	case 'U' : 	result = clsBigDecimal.setScale(precision, BigDecimal.ROUND_UP		);break;
+		}
+		return result;
+	}
+	public static String paddingLeft(String strData,int length,char padding) {
+		return Strings.padStart(strData,length,padding);
+	}
+	public static String paddingRight(String strData,int length,char padding) {
+		return Strings.padEnd(strData,length,padding);
+	}
+	public static String nullToStringWithString(String strTarget,String padding) {
+		if(Misc.isEqualStringWithoutCase(strTarget, "null") == true) strTarget = "";
+		return Misc.isEmtyString(strTarget) == true ? (Misc.isEmtyString(padding) ? "" : padding) : strTarget;
+	}
+}

@@ -1,0 +1,23 @@
+/**************************************************************************************** 
+ * File Name    : XmlUtil.java
+ * Function     : 
+ * Author       : mh.choi
+ * Tester       : 
+ * Page         : 
+ * Target       : 
+ * Description  : 
+ * Modification Log
+ * =============================================================== 
+ * Ver  Date        Author     Modification
+ * ===============================================================
+   1.0  2018.06.19  mh.choi    Create
+****************************************************************************************/
+package org.snubi.lib.xml;
+
+import java.io.File;
+import org.snubi.lib.model.xml.ModelBioEmrCrf;
+
+public abstract class XmlUtil {
+	public abstract ModelBioEmrCrf parseXML(File clsFileParamter) throws Exception;
+	
+}
